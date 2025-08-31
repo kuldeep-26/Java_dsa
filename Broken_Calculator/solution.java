@@ -11,7 +11,7 @@ public class solution{
             System.out.print(tar + " ");
             count++;
         }
-        return count;
+        return count - tar + n;
     }
 
     public static void main(String[] args){
