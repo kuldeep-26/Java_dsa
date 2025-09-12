@@ -7,27 +7,25 @@ public class solution{
         
         // Adding first String into map....
         for(int i = 0; i < s.length(); i++){
-            if(map.containsKey(s.charAt(i))){
-                map.put(s.charAt(i), map.get(s.charAt(i)) + 1);
-            }
-            else{
-                map.put(s.charAt(i), 1);
-            }
+            char ch = s.charAt(i);
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
 
         // removing String from map with respect to second String....
         for(int i = 0; i < t.length(); i++){
-            if(map.containsKey(t.charAt(i))){
-                map.put(t.charAt(i), map.get(t.charAt(i)) - 1);
+            char ch = t.charAt(i);
+            if(map.get(ch) != null){
+                if(map.get(ch) == 1){
+                    map.remove(ch);
+                }else{
+                    map.put(ch, map.get(ch) - 1);  
+                }
             }else{
                 return false;
             }
-            if(map.get(t.charAt(i)) == 0){
-                map.remove(t.charAt(i));
-            }
         }
     
-        return map.isEmpty() ? true : false;
+        return map.isEmpty();
     }
 
     public static void main(String[] args){
