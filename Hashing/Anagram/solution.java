@@ -3,6 +3,9 @@ import java.util.*;
 public class solution{
 
     public static boolean chechAnagram(String s, String t){
+        if(s.length() != t.length()){
+            return false;
+        }
         HashMap<Character, Integer> map = new HashMap<>();
         
         // Adding first String into map....
