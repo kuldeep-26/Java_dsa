@@ -2,33 +2,26 @@ import java.util.*;
 
 public class solution {
     public static int longestSubarray(int[] arr, int k) {
-        Map<Integer, Integer> map = new HashMap<>(); // prefixSum -> first index
+        HashMap<Integer, Integer> map = new HashMap<>(); // (sum, count)
+        map.put(0,1);
+
         int sum = 0;
-        int maxLen = 0;
+        int ans = 0;
 
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i];
-
-            if (sum == k) {
-                maxLen = i + 1;
+        for (int j = 0; j < arr.length; j++) {
+            sum += arr[j];
+            if(map.containsKey(sum - k)){
+                ans += map.get(sum - k);
             }
-
-            if (!map.containsKey(sum)) {
-                map.put(sum, i); // store first occurrence
-            }
-
-            if (map.containsKey(sum - k)) {
-                int prevIndex = map.get(sum - k);
-                maxLen = Math.max(maxLen, i - prevIndex);
-            }
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
 
-        return maxLen;
+        return ans;
     }
 
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 0, 3, -1, 4};
-        int k = 6;
+        int[] arr = {10, 2, -2, -20, 10};
+        int k = -10;
 
         System.out.println("Longest subarray length = " + longestSubarray(arr, k));
     }
