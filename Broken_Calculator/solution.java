@@ -16,8 +16,8 @@ public class solution{
 
     public static void main(String[] args){
         int num = 1;
-        int target = 1000000000;
+        int target = 1000;
         int output = brokenCal(num,target);
-        System.out.println(output);
+        System.out.println("\nTotal Number of Operation: " + output);
     }
 }
