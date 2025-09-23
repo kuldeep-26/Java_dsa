@@ -21,8 +21,7 @@ public class solution{
             // pd...
             sum += arr[i][i];
             // sd...
-            if(i != arr.length-1-i)
-                sum += arr[i][arr.length-i-1];
+            sum += arr[i][arr.length-i-1];
         }
         System.out.println("Total sum of diagonal: " + sum);
     }
