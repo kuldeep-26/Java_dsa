@@ -11,9 +11,9 @@ public class solution{
         return f[n];
     }
 
-    public static int fib_tab(int n){
-        int[] dp = new int[n+1];
-        dp[0] = 0;
+    public static int fib_tab(int n){             // 1. Create table + Initiallize(base case)
+        int[] dp = new int[n+1];                  // 2. Meaning for index
+        dp[0] = 0;                                // 3. Fill(Bottom to up / Small to large)
         dp[1] = 1;
         for(int i=2; i<=n; i++){
             dp[i] = dp[i-1] + dp[i-2];
